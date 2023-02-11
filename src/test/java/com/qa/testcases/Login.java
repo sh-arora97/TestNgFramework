@@ -13,7 +13,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 public class Login extends Base {
     LoginPage loginPage;
-    WebDriver driver;
+   public WebDriver driver;
     public Login(){
         super();
     }

@@ -17,7 +17,7 @@
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>7.4.0</version>
-            <scope>test</scope>
+            <scope>compile</scope>
         </dependency>
 
         <dependency>
@@ -40,6 +40,12 @@
             <artifactId>poi-ooxml-schemas</artifactId>
             <version>4.1.2</version>
         </dependency>
+        <dependency>
+            <groupId>com.aventstack</groupId>
+            <artifactId>extentreports</artifactId>
+            <version>5.0.9</version>
+        </dependency>
+
 
 
 

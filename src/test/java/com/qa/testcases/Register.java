@@ -14,7 +14,7 @@ import org.testng.annotations.Test;
 public class Register extends Base {
     RegisterPage registerPage;
     AccountSuccessPage accountSuccessPage;
-    WebDriver driver;
+   public WebDriver driver;
     public Register(){
         super();
     }

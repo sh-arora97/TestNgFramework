@@ -12,13 +12,15 @@ import org.testng.annotations.Test;
 
 public class Search extends Base {
     SearchPage searchPage;
-    WebDriver driver;
+   public WebDriver driver;
+    HomePage homePage;
     public Search(){
         super();
     }
     @BeforeMethod
     public void setup(){
         driver=initializeBrowserAndOpenApplicationURL(properties.getProperty("browser"));
+        homePage=new HomePage(driver);
     }
 
     @AfterMethod
@@ -27,21 +29,18 @@ public class Search extends Base {
     }
     @Test(priority = 1)
     public void verifySearchWithValidProducts(){
-        HomePage homePage=new HomePage(driver);
         homePage.enterProductIntoSearchBoxField(dataProp.getProperty("validProduct"));
         searchPage=  homePage.clickOnSearchButton();
         Assert.assertTrue(searchPage.displayStatusOfHpValidProduct(),"Valid product HP is not displayed in search results");
     }
     @Test(priority = 2)
     public void verifySearchWithInvalidProduct(){
-        HomePage homePage=new HomePage(driver);
         homePage.enterProductIntoSearchBoxField(dataProp.getProperty("invalidProduct"));
         searchPage=  homePage.clickOnSearchButton();
-        Assert.assertTrue(searchPage.retrieveNoProductMessageText(),dataProp.getProperty("noProductTextInSearch"));
+        Assert.assertTrue(Boolean.parseBoolean("klll"),dataProp.getProperty("noProductTextInSearch"));
     }
     @Test(priority = 3)
     public void verifySearchWithoutAnyProduct(){
-        HomePage homePage=new HomePage(driver);
         searchPage=  homePage.clickOnSearchButton();
         Assert.assertTrue(searchPage.retrieveNoProductMessageText(),dataProp.getProperty("noProductTextInSearch"));
     }
