@@ -10,11 +10,11 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class Search extends Base {
+public class SearchTest extends Base {
     SearchPage searchPage;
    public WebDriver driver;
     HomePage homePage;
-    public Search(){
+    public SearchTest(){
         super();
     }
     @BeforeMethod

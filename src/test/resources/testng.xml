@@ -6,9 +6,9 @@
     </listeners>
     <test name="TestCases">
         <classes>
-            <class name="com.qa.testcases.Register"/>
-            <class name="com.qa.testcases.Login"/>
-            <class name="com.qa.testcases.Search"/>
+            <class name="com.qa.testcases.RegisterTest"/>
+            <class name="com.qa.testcases.LoginTest"/>
+            <class name="com.qa.testcases.SearchTest"/>
         </classes>
     </test><!-- Test -->
 </suite><!-- Suit -->

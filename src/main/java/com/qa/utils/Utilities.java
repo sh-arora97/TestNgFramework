@@ -5,9 +5,14 @@ import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.io.FileHandler;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.Date;
 
 public class Utilities {
@@ -29,7 +34,6 @@ public class Utilities {
         }catch (Throwable e){
             e.printStackTrace();
         }
-      
       XSSFSheet sheet= workbook.getSheet(sheetName);
       int rows=sheet.getLastRowNum();
       int cols=sheet.getRow(0).getLastCellNum();
@@ -57,5 +61,15 @@ public class Utilities {
 
       }
         return data;
+    }
+    public static String captureScreenshot(WebDriver driver, String testName){
+        File srcScreenshot=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+        String destinationScreenshotPath=System.getProperty("user.dir")+ "\\target\\Screenshots\\"+testName +".png";
+        try {
+            FileHandler.copy(srcScreenshot,new File(destinationScreenshotPath));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return destinationScreenshotPath;
     }
 }
